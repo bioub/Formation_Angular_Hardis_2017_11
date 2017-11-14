@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-controller="TodoCtrl">
+  <form ng-submit="ajouter()">
+    <input type="checkbox" ng-model="isChecked" ng-click="toggleAll()">
+    <input ng-model="todo.value">
+    <button>+</button>
+  </form>
+  <p ng-repeat="t in todos">
+    <input type="checkbox" ng-model="t.done">
+    <input ng-model="t.value">
+    <button ng-click="supprimer($index)">-</button>
+  </p>
+  <script src="./node_modules/angular/angular.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      const module = angular.module('app', []);
+
+      // 1 - Créer un controller TodoCtrl
+      // avec sur son scope un tableau de todos
+      // (clés/propriétés done et value)
+
+      // 2 - Créer la méthode ajouter()
+      // qui ajouter une todo au tableau
+      // en pensant à faire une copie
+
+      // 3 - Créer la méthode supprimer sur le scope
+      // qui reçoit l'indice du tableau et qui supprime
+      // l'élement (voir MDN Array.prototype.splice)
+
+      // 4 - Créer la méthode toggleAll qui modifie
+      // tous les éléments done du tableau
+      // en leur appliquant la valeur de $scope.isChecked
+
+      }());
+  </script>
+</body>
+</html>

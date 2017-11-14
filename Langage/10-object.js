@@ -4,8 +4,8 @@ const coords2d = {
   y: 20,
 };
 
-console.log(coords2d.x);
-console.log(coords2d.y);
+console.log(coords2d.x); // 10
+console.log(coords2d.y); // 20
 
 function createCoords2d(x, y) {
   return {
@@ -58,3 +58,4 @@ const p208 = new Voiture('Peugeot');
 console.log(typeof Voiture); // function
 console.log(p208.marque); // Peugeot
 console.log(p208.demarrer()); // Vrrroommmm Peugeot
+

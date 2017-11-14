@@ -12,7 +12,7 @@ function externe(msg) {
 
 const hello = externe('Hello');
 console.log(hello); // function
-hello();
+hello(); // Hello
 
 
 // 3 3 3

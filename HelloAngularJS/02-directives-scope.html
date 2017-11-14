@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    Prénoms : <input ng-model="prenoms" ng-list>
+  </div>
+  <p ng-repeat="p in prenoms track by $index">
+    <span ng-bind="$index"></span>
+    {{$index}}
+    Bonjour <span ng-bind="p"></span> !
+    <button ng-if="$last">-</button>
+    <span ng-show="$even">Pair</span>
+    <span ng-hide="$even">Impair</span>
+    {{prenoms}}
+  </p>
+  <script src="./node_modules/angular/angular.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-controller="ContactCtrl">
+  <div>
+    Prénom : <input ng-model="contact.prenom">
+    Nom : <input ng-model="contact.nom">
+    <button ng-click="ajouter()">+</button>
+  </div>
+  <p ng-repeat="c in contacts">
+    Bonjour {{c.prenom}} {{c.nom}} !
+  </p>
+  <script src="./node_modules/angular/angular.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      // Créer un module
+      // angular.module('app', [])
+
+      // Reprendre un module existant (pour le compléter)
+      // angular.module('app')
+
+      const module = angular.module('app', []);
+
+      class ContactCtrl {
+        constructor($scope) {
+
+          $scope.contacts = [{
+            prenom: 'Jean',
+            nom: 'Dupont',
+          }];
+
+          $scope.ajouter = function() {
+            // const copy = angular.copy($scope.contact); // Angular
+            const copy = Object.assign({}, $scope.contact); // ES6
+            //const copy = {...$scope.contact}; // ESNext
+            $scope.contacts.push(copy);
+          };
+        }
+      }
+
+      module.controller('ContactCtrl', ContactCtrl)
+    }());
+  </script>
+</body>
+</html>
