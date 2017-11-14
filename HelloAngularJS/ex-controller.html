@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body ng-controller="TodoCtrl">
+  <h2>Todos</h2>
   <form ng-submit="ajouter()">
     <input type="checkbox" ng-model="isChecked" ng-click="toggleAll()">
     <input ng-model="todo.value">
@@ -24,9 +25,33 @@
 
       const module = angular.module('app', []);
 
+      class TodoCtrl {
+        constructor($scope) {
+          $scope.todos = [];
+
+          $scope.ajouter = function() {
+            const copy = Object.assign({}, $scope.todo);
+            copy.done = $scope.isChecked;
+            $scope.todos.unshift(copy);
+            $scope.todo.value = '';
+          };
+
+          $scope.supprimer = function(i) {
+            $scope.todos.splice(i, 1);
+          };
+
+          $scope.toggleAll = function() {
+            $scope.todos.forEach(t => {
+              t.done = $scope.isChecked;
+            });
+          };
+        }
+      }
+
       // 1 - Créer un controller TodoCtrl
       // avec sur son scope un tableau de todos
       // (clés/propriétés done et value)
+      module.controller('TodoCtrl', TodoCtrl);
 
       // 2 - Créer la méthode ajouter()
       // qui ajouter une todo au tableau
