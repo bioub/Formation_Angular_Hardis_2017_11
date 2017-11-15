@@ -1,0 +1,22 @@
+<h2>Ajouter un contact</h2>
+<form name="contactForm" 
+      ng-submit="contactForm.$valid && $ctrl.ajouter()"
+      novalidate>
+  <p>
+    Name :
+    <input name="nameInput" 
+           required
+           ng-model="$ctrl.contact.name">
+    <span ng-if="contactForm.nameInput.$invalid && contactForm.nameInput.$touched">
+      Le nom est obligatoire
+    </span>
+  </p>
+  <p>
+    <button>Ajouter</button>
+  </p> 
+</form>
+<style>
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+</style>

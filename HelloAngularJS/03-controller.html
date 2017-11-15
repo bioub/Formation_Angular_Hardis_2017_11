@@ -37,9 +37,12 @@
           }];
 
           $scope.ajouter = function() {
-            // const copy = angular.copy($scope.contact); // Angular
-            const copy = Object.assign({}, $scope.contact); // ES6
-            //const copy = {...$scope.contact}; // ESNext
+            const copy = angular.copy($scope.contact); // Angular
+            // ou lodash.cloneDeep
+
+            // Que le premier niveau
+            // const copy = Object.assign({}, $scope.contact); // ES6
+            // const copy = {...$scope.contact}; // ESNext
             $scope.contacts.push(copy);
           };
         }

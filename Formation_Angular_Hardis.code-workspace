@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "Langage"
+		},
+		{
+			"path": "HorlogeES6"
+		},
+		{
+			"path": "HelloAngularJS"
+		},
+		{
+			"path": "AddressBookAngularJS"
+		}
+	],
+	"settings": {}
+}
