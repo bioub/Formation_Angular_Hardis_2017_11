@@ -13,10 +13,13 @@
     <input ng-model="todo.value">
     <button>+</button>
   </form>
-  <p ng-repeat="t in todos">
+  <p ng-repeat="t in todos | filter:monFiltre">
     <input type="checkbox" ng-model="t.done">
-    <input ng-model="t.value">
+    <input ng-model="t.value | uppercase">
     <button ng-click="supprimer($index)">-</button>
+  </p>
+  <p>
+    Filtre : <input ng-model="monFiltre">
   </p>
   <script src="./node_modules/angular/angular.js"></script>
   <script>

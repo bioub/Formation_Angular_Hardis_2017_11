@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <contact-directive></contact-directive>
+  <script src="./node_modules/angular/angular.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      // Créer un module
+      // angular.module('app', [])
+
+      // Reprendre un module existant (pour le compléter)
+      // angular.module('app')
+
+      const module = angular.module('app', []);
+
+      class ContactCtrl {
+        constructor() {
+          this.contacts = [{
+            prenom: 'Jean',
+            nom: 'Dupont',
+          }];
+        }
+        ajouter() {
+          const copy = Object.assign({}, this.contact); // ES6
+          this.contacts.push(copy);
+        };
+      }
+
+      module.directive('contactDirective', () => ({
+        restrict: 'E',
+        controller: ContactCtrl,
+        controllerAs: '$ctrl',
+        template: `
+    <div>
+      Prénom : <input ng-model="$ctrl.contact.prenom">
+      Nom : <input ng-model="$ctrl.contact.nom">
+      <button ng-click="$ctrl.ajouter()">+</button>
+    </div>
+    <p ng-repeat="c in $ctrl.contacts">
+      Bonjour {{c.prenom}} {{c.nom}} !
+    </p>
+    `
+      }));
+    }());
+  </script>
+</body>
+</html>
