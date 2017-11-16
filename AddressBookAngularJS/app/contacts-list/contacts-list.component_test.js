@@ -8,10 +8,13 @@ describe('myApp.contacts-list module', function() {
 
     it('should ....', inject(function($componentController, contactService) {
       //spec body
+      // Sinon.js : bibliothèque de mock / stub / spy
       contactService.getList = function() {
         return {
           then(cb) {
+            //var spy = jasmine.createSpy(cb);
             cb({data: [{name: 'Toto'}, {name: 'Titi'}]})
+            //expect(spy).toHaveBeenCalledTimes(1);
           }
         }
       };

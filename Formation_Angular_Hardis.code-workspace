@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "AddressBookAngularJS"
+		},
+		{
+			"path": "HelloAngular"
 		}
 	],
 	"settings": {}

@@ -22,7 +22,6 @@
       this.users = [];
       contactService.getList()
         .then(res => {
-          console.log('Res', res);
           this.users = res.data;
         });
       /*
@@ -33,6 +32,8 @@
         */
     }
   }
+
+  ContactsListCtrl.$inject = ['contactService'];
   
   module.component('contactsList', {
     controller: ContactsListCtrl,

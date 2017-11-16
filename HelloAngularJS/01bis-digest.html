@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-app>
+  <div>
+    <!-- Prénom : <input ng-model="prenom"> -->
+  </div>
+  <p>
+    Bonjour <span ng-bind="prenom"></span> !
+  </p>
+  <script src="./node_modules/angular/angular.js"></script>
+  <script>
+    document.addEventListener('click', () => {
+      angular.element(document.body).scope().prenom = Math.random();
+      // $digest lance la détection de changement
+      // -> vérifie tous les watchers
+      angular.element(document.body).scope().$digest();
+    })
+  </script>
+</body>
+</html>

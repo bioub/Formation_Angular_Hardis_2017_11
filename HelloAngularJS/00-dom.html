@@ -23,8 +23,8 @@
       const inputElt = document.querySelector('.prenom');
       const resultElt = document.querySelector('.result');
 
-      inputElt.addEventListener('input', (event) => {
-        resultElt.textContent = event.target.value;
+      inputElt.addEventListener('input', ($event) => {
+        resultElt.textContent = $event.target.value;
       });
     }());
   </script>
