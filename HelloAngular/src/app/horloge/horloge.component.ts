@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'hello-horloge',
   template: `
-    <p>{{now | date:'HH:mm:ss' }}</p>
+    <p>{{now | date:format }}</p>
   `,
   styles: [],
   exportAs: 'horlogeCmp',
@@ -13,6 +13,17 @@ export class HorlogeComponent implements OnInit, OnDestroy {
   public now: Date;
   private intervalId: number;
 
+  @Input()
+  public format = 'HH:mm:ss';
+
+  /*
+  @Input()
+  public date = 'HH:mm:ss';
+  */
+
+  @Output()
+  public dateChange = new EventEmitter<Date>();
+
   constructor() {
      
   }
@@ -21,6 +32,7 @@ export class HorlogeComponent implements OnInit, OnDestroy {
     this.now = new Date();
     this.intervalId = setInterval(() => {
       this.now = new Date();
+      this.dateChange.emit(this.now);
     }, 1000);
   }
 

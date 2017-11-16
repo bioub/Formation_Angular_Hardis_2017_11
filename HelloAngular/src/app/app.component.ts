@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   template: `
     <h2>Horloge</h2>
     <hello-horloge></hello-horloge>
+    <hello-horloge [format]="'HH:mm'"></hello-horloge>
+    <hello-horloge [format]="myFormat"></hello-horloge>
+    <hello-horloge format="HH:mm" (dateChange)="handleDate($event)"></hello-horloge>
     <hr>
     <h2>Property bindings</h2>
     <hello-property-bindings></hello-property-bindings>
@@ -20,9 +23,17 @@ import { Component } from '@angular/core';
     <hr>
     <h2>Common Directives</h2>
     <hello-common-directive></hello-common-directive>
+    
+
+    <!--<hardis-dropdown [items]="['Ajouter', 'Modifier']" (selectionChange)=""></hardis-dropdown>-->
   `,
   styles: []
 })
 export class AppComponent {
   title = 'Hello';
+  myFormat = 'HH:mm'
+
+  handleDate(date) {
+    console.log(date);
+  }
 }
