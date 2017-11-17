@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
       </li>
     </ul>
     <table>
-      <ng-template ngFor let-p [ngForOf]="prenoms" let-i="index" [ngForTrackBy]="trackByFn">
+      <ng-template ngFor let-p [ngForOf]="prenoms" let-i="index" let-isLast="last">
         <tr><td>{{i}}</td></tr>
         <tr><td>{{p}}</td></tr>
       </ng-template>

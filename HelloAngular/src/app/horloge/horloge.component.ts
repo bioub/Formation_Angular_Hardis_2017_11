@@ -25,7 +25,6 @@ export class HorlogeComponent implements OnInit, OnDestroy {
   public dateChange = new EventEmitter<Date>();
 
   constructor() {
-     
   }
 
   ngOnInit() {

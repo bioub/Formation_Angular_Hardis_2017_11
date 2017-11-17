@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
     </p>
     <hello-horloge #horloge="horlogeCmp"></hello-horloge>
     {{horloge.now | date: 'HH:mm:ss'}}
-    <div>
+    <div >
       Prénom : <input 
                   required
                   [(ngModel)]="prenom" 

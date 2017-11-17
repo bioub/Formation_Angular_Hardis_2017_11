@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   </div>
   <div>
     Prénom : <input (input)="prenom = $event.target.value">
+    
   </div>
   <div>
     Prénom : <input (input)="updatePrenom($event)">

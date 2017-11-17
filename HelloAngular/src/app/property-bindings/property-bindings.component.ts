@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
     <input bind-value="prenom">
     <div [textContent]="prenom"></div>
     <input [value]="prenom + '!'">
+    
+    <div>
+      Nom <input [(ngModel)]="nom">
+    </div>
+    
+    {{nom}}
 
     <!-- bind une propriété du DOM -->
     <div [className]="prenom"></div>
@@ -18,10 +24,19 @@ import { Component, OnInit } from '@angular/core';
 export class PropertyBindingsComponent implements OnInit {
 
   public prenom = 'Romain';
+  private _nom = 'Bohdanowicz';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  get nom() {
+    return this._nom;
+  }
+
+  set nom(val: string) {
+    this._nom = val.toUpperCase();
   }
 
 }
