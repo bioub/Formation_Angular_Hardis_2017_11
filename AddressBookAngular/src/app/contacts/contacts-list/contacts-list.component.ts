@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ContactService } from '../../core/contact.service';
 
 @Component({
   selector: 'address-contacts-list',
   templateUrl: './contacts-list.component.html',
-  styleUrls: ['./contacts-list.component.scss']
+  styleUrls: ['./contacts-list.component.scss'],
 })
 export class ContactsListComponent implements OnInit {
 
   public contacts = [];
 
   constructor(
-    private httpClient: HttpClient,
+    private contactService: ContactService
   ) { }
 
   ngOnInit() {
-    const apiUrl = 'https://jsonplaceholder.typicode.com/users';
-    this.httpClient.get<any[]>(apiUrl)
+    this.contactService.getList()
       .subscribe(contacts => {
         this.contacts = contacts;
       });
+
   }
 
 }

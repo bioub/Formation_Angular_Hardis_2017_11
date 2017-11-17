@@ -1,3 +1,12 @@
-<p>
-  contacts-add works!
-</p>
+<form (submit)="contactForm.valid && ajouter()" novalidate #contactForm="ngForm" [ngClass]="{'was-validated': contactForm.touched}">
+  <div class="form-group" [ngClass]="{'is-invalid': nameNgModel.invalid && nameNgModel.touched}">
+    <label for="nameInput">Name</label>
+    <input required type="text" class="form-control"
+           id="nameInput" placeholder="Enter name"
+           [(ngModel)]="contact.name" name="name" #nameNgModel="ngModel">
+    <div class="invalid-feedback" *ngIf="nameNgModel.invalid && nameNgModel.touched">
+      Le nom est obligatoire
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">+</button>
+</form>

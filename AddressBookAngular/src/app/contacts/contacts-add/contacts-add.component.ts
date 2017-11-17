@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from '../../core/contact';
+import { ContactService } from '../../core/contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'address-contacts-add',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsAddComponent implements OnInit {
 
-  constructor() { }
+  public contact: Contact = {
+    name: ''
+  };
+
+  constructor(
+    private contactService: ContactService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
 
+  ajouter() {
+    this.contactService
+      .create(this.contact)
+      .subscribe(c => {
+        this.router.navigate(['contacts', c.id]);
+      });
+  }
 }
